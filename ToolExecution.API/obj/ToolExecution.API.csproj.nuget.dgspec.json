@@ -59,15 +59,19 @@
           "dependencies": {
             "OpenTelemetry.Exporter.Console": {
               "target": "Package",
-              "version": "[1.6.0, )"
+              "version": "[1.15.0, )"
             },
             "OpenTelemetry.Extensions.Hosting": {
               "target": "Package",
-              "version": "[1.0.0-rc9, )"
+              "version": "[1.15.0, )"
             },
             "OpenTelemetry.Instrumentation.AspNetCore": {
               "target": "Package",
-              "version": "[1.0.0-rc9, )"
+              "version": "[1.15.0, )"
+            },
+            "OpenTelemetry.Instrumentation.Http": {
+              "target": "Package",
+              "version": "[1.15.0, )"
             },
             "Polly": {
               "target": "Package",
@@ -76,6 +80,10 @@
             "Serilog.AspNetCore": {
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[10.1.4, )"
             }
           },
           "imports": [

@@ -5,3 +5,4 @@ C:\Laptop\OldLaptop\F Drive\StudyVideos\2026\AI\Projects\ToolExecutionService\To
 C:\Laptop\OldLaptop\F Drive\StudyVideos\2026\AI\Projects\ToolExecutionService\ToolExecution.API\obj\Debug\net8.0\ToolExecution.API.csproj.CoreCompileInputs.cache
 C:\Laptop\OldLaptop\F Drive\StudyVideos\2026\AI\Projects\ToolExecutionService\ToolExecution.API\obj\Debug\net8.0\ToolExecution.API.MvcApplicationPartsAssemblyInfo.cache
 C:\Laptop\OldLaptop\F Drive\StudyVideos\2026\AI\Projects\ToolExecutionService\ToolExecution.API\obj\Debug\net8.0\ToolExecution.API.sourcelink.json
+C:\Laptop\OldLaptop\F Drive\StudyVideos\2026\AI\Projects\ToolExecutionService\ToolExecution.API\obj\Debug\net8.0\ToolExecution.API.MvcApplicationPartsAssemblyInfo.cs
