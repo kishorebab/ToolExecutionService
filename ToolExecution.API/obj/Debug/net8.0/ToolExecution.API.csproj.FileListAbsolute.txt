@@ -1,0 +1,7 @@
+C:\Laptop\OldLaptop\F Drive\StudyVideos\2026\AI\Projects\ToolExecutionService\ToolExecution.API\obj\Debug\net8.0\ToolExecution.API.csproj.AssemblyReference.cache
+C:\Laptop\OldLaptop\F Drive\StudyVideos\2026\AI\Projects\ToolExecutionService\ToolExecution.API\obj\Debug\net8.0\ToolExecution.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Laptop\OldLaptop\F Drive\StudyVideos\2026\AI\Projects\ToolExecutionService\ToolExecution.API\obj\Debug\net8.0\ToolExecution.API.AssemblyInfoInputs.cache
+C:\Laptop\OldLaptop\F Drive\StudyVideos\2026\AI\Projects\ToolExecutionService\ToolExecution.API\obj\Debug\net8.0\ToolExecution.API.AssemblyInfo.cs
+C:\Laptop\OldLaptop\F Drive\StudyVideos\2026\AI\Projects\ToolExecutionService\ToolExecution.API\obj\Debug\net8.0\ToolExecution.API.csproj.CoreCompileInputs.cache
+C:\Laptop\OldLaptop\F Drive\StudyVideos\2026\AI\Projects\ToolExecutionService\ToolExecution.API\obj\Debug\net8.0\ToolExecution.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Laptop\OldLaptop\F Drive\StudyVideos\2026\AI\Projects\ToolExecutionService\ToolExecution.API\obj\Debug\net8.0\ToolExecution.API.sourcelink.json
