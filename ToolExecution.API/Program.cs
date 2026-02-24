@@ -24,12 +24,14 @@ builder.Services.AddSingleton<IKubernetesClient, KubernetesClient>();
 builder.Services.AddScoped<IToolExecutionOrchestratorService, ToolExecutionOrchestratorService>();
 
 // OpenTelemetry minimal setup
-builder.Services.AddOpenTelemetryTracing(tracerProviderBuilder =>
-{
-    tracerProviderBuilder.AddAspNetCoreInstrumentation();
-    tracerProviderBuilder.AddHttpClientInstrumentation();
-    tracerProviderBuilder.AddConsoleExporter();
-});
+builder.Services.AddOpenTelemetry()
+    .WithTracing(tracerProviderBuilder =>
+    {
+        tracerProviderBuilder
+            .AddAspNetCoreInstrumentation()
+            .AddHttpClientInstrumentation()
+            .AddConsoleExporter();
+    });
 
 var app = builder.Build();
 

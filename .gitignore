@@ -58,3 +58,6 @@ _ReSharper*/
 
 # Publish output
 publish/ 
+
+**/.cache/
+.cache/
