@@ -1,0 +1,36 @@
+# Ignore build outputs
+bin/
+obj/
+**/bin/
+**/obj/
+
+# Ignore local user files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+
+# Git files
+.git
+.gitignore
+.gitattributes
+
+# Logs
+*.log
+
+# Publish outputs
+app/publish/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.DS_Store
+
+# Dev-only config
+appsettings.Development.json

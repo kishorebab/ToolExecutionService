@@ -1,0 +1,12 @@
+services:
+  toolexecution-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: toolexecution-api
+    ports:
+      - "8080:80"
+    environment:
+      DOTNET_RUNNING_IN_CONTAINER: "true"
+      DOTNET_ENVIRONMENT: "Production"
+    restart: unless-stopped
