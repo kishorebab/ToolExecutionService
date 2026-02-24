@@ -1,7 +1,7 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using OpenTelemetry.Trace;
 using Serilog;
 using ToolExecution.Application.Contracts;
 using ToolExecution.Application.Services;
@@ -11,7 +11,8 @@ using ToolExecution.Infrastructure.Policies;
 var builder = WebApplication.CreateBuilder(args);
 
 // Serilog
-builder.Host.UseSerilog((ctx, lc) => lc.WriteTo.Console());
+builder.Host.UseSerilog((ctx, lc) => 
+    lc.WriteTo.Console());
 
 // Services
 builder.Services.AddControllers();
@@ -23,11 +24,11 @@ builder.Services.AddSingleton<PolicyProvider>();
 builder.Services.AddSingleton<IKubernetesClient, KubernetesClient>();
 builder.Services.AddScoped<IToolExecutionOrchestratorService, ToolExecutionOrchestratorService>();
 
-// OpenTelemetry minimal setup
+// OpenTelemetry
 builder.Services.AddOpenTelemetry()
-    .WithTracing(tracerProviderBuilder =>
+    .WithTracing(tracing =>
     {
-        tracerProviderBuilder
+        tracing
             .AddAspNetCoreInstrumentation()
             .AddHttpClientInstrumentation()
             .AddConsoleExporter();
@@ -42,8 +43,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseRouting();
 app.UseSerilogRequestLogging();
-app.UseEndpoints(endpoints => endpoints.MapControllers());
+
+app.MapControllers();
 
 app.Run();
