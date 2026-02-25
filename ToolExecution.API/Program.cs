@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OpenTelemetry.Trace;
 using Serilog;
+using Domain = ToolExecution.Domain.Models;
 using ToolExecution.API.Middleware;
 using ToolExecution.Application.Contracts;
 using ToolExecution.Application.Services;
@@ -11,6 +12,8 @@ using ToolExecution.Application.Validators;
 using ToolExecution.Domain.Models;
 using ToolExecution.Infrastructure.Clients;
 using ToolExecution.Infrastructure.Policies;
+using ToolExecution.Infrastructure.Registries;
+using ToolExecution.Infrastructure.SampleTools;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +27,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Dependency Injection
+
+// Tool Engine
+builder.Services.AddSingleton<Domain.IToolRegistry, InMemoryToolRegistry>();
+builder.Services.AddScoped<IToolExecutor, ToolExecutionService>();
+
+// Kubernetes Client
 builder.Services.AddSingleton<PolicyProvider>();
 builder.Services.AddSingleton<IKubernetesClient, KubernetesClient>();
 builder.Services.AddScoped<IToolExecutorService, ToolExecutorService>();
@@ -50,6 +59,12 @@ builder.Services.AddOpenTelemetry()
     });
 
 var app = builder.Build();
+
+// Initialize Tool Engine: Register sample tools
+var toolRegistry = app.Services.GetRequiredService<Domain.IToolRegistry>();
+toolRegistry.Register(new EchoTool());
+toolRegistry.Register(new MathAddTool());
+app.Logger.LogInformation("Tool Engine initialized with {ToolCount} sample tools", toolRegistry.Count);
 
 if (app.Environment.IsDevelopment())
 {
