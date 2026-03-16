@@ -34,7 +34,14 @@ builder.Services.AddScoped<IToolExecutor, ToolExecutionService>();
 
 // Kubernetes Client
 builder.Services.AddSingleton<PolicyProvider>();
-builder.Services.AddSingleton<IKubernetesClient, KubernetesClient>();
+
+// DI swap: use mock or real Kubernetes client based on configuration
+var kubernetesClient = builder.Configuration["KUBERNETES_CLIENT"] ?? "mock";
+if (kubernetesClient == "real")
+    builder.Services.AddSingleton<IKubernetesClient, KubernetesClient>();
+else
+    builder.Services.AddSingleton<IKubernetesClient, MockKubernetesClient>();
+
 builder.Services.AddScoped<IToolExecutorService, ToolExecutorService>();
 
 // FluentValidation Registration

@@ -1,0 +1,54 @@
+{
+  "snapshotDate": "2026-03-16",
+  "day": "incident",
+  "resourceUsage": [
+    {
+      "name": "elasticsearch-1",
+      "namespace": "data",
+      "cpuUsage": "950m",
+      "memoryUsage": "3.8Gi"
+    },
+    {
+      "name": "postgres-statefulset-0",
+      "namespace": "data",
+      "cpuUsage": "780m",
+      "memoryUsage": "2.0Gi"
+    },
+    {
+      "name": "redis-statefulset-0",
+      "namespace": "data",
+      "cpuUsage": "650m",
+      "memoryUsage": "2.0Gi"
+    },
+    {
+      "name": "kafka-0",
+      "namespace": "data",
+      "cpuUsage": "850m",
+      "memoryUsage": "2.3Gi"
+    },
+    {
+      "name": "kafka-1",
+      "namespace": "data",
+      "cpuUsage": "820m",
+      "memoryUsage": "2.2Gi"
+    },
+    {
+      "name": "api-gateway-84f6c5d-2x7n9",
+      "namespace": "platform",
+      "cpuUsage": "950m",
+      "memoryUsage": "920Mi"
+    },
+    {
+      "name": "order-service-4b2c1f8-hjk9l",
+      "namespace": "commerce",
+      "cpuUsage": "520m",
+      "memoryUsage": "780Mi"
+    },
+    {
+      "name": "fraud-detector-7a5b2e6-q4j8m",
+      "namespace": "payments",
+      "cpuUsage": "890m",
+      "memoryUsage": "680Mi"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "snapshotDate": "2026-03-14",
+  "day": "stable",
+  "podLogs": {
+    "payment-service-3e2d5f7-lm9c8": [
+      "2026-03-14T08:00:00Z INFO  [PaymentService] Starting payment service",
+      "2026-03-14T08:00:05Z INFO  [PaymentService] Connected to database",
+      "2026-03-14T08:00:10Z INFO  [PaymentService] FraudCheckClient initialized",
+      "2026-03-14T10:30:15Z INFO  [PaymentService] Processed payment: order-12345, amount=1299.99, latency=145ms",
+      "2026-03-14T11:00:22Z INFO  [PaymentService] Health check passed",
+      "2026-03-14T12:15:00Z INFO  [PaymentService] Processed payment: order-12346, amount=89.99, latency=132ms",
+      "2026-03-14T14:45:30Z INFO  [PaymentService] Health check passed"
+    ],
+    "elasticsearch-0": [
+      "2026-03-14T07:55:00Z INFO  [Elasticsearch] Cluster started",
+      "2026-03-14T08:00:00Z INFO  [Elasticsearch] Node joined cluster",
+      "2026-03-14T08:05:00Z INFO  [Elasticsearch] Heap memory: 2100 MB / 4096 MB (51%)",
+      "2026-03-14T10:00:00Z INFO  [Elasticsearch] Completed GC: duration=45ms",
+      "2026-03-14T12:00:00Z INFO  [Elasticsearch] Query latency p50=25ms, p99=85ms",
+      "2026-03-14T14:00:00Z INFO  [Elasticsearch] Heap memory: 2050 MB / 4096 MB (50%)",
+      "2026-03-14T16:00:00Z INFO  [Elasticsearch] Shard allocation complete"
+    ],
+    "postgres-statefulset-0": [
+      "2026-03-14T08:00:00Z INFO  [PostgreSQL] Server started",
+      "2026-03-14T08:00:05Z INFO  [PostgreSQL] Database initialized",
+      "2026-03-14T08:01:00Z INFO  [PostgreSQL] Active connections: 32 / 200",
+      "2026-03-14T10:00:00Z INFO  [PostgreSQL] Slow query: order_summary (123ms)",
+      "2026-03-14T12:00:00Z INFO  [PostgreSQL] Active connections: 48 / 200",
+      "2026-03-14T14:00:00Z INFO  [PostgreSQL] Slow query: inventory_check (95ms)",
+      "2026-03-14T16:00:00Z INFO  [PostgreSQL] Checkpoint completed"
+    ],
+    "redis-statefulset-0": [
+      "2026-03-14T08:00:00Z INFO  [Redis] Server started",
+      "2026-03-14T08:00:01Z INFO  [Redis] Loading RDB snapshot",
+      "2026-03-14T08:00:05Z INFO  [Redis] Ready to accept connections",
+      "2026-03-14T10:00:00Z INFO  [Redis] Memory usage: 920 MB / 2048 MB (45%)",
+      "2026-03-14T12:00:00Z INFO  [Redis] Cache hit rate: 87%",
+      "2026-03-14T14:00:00Z INFO  [Redis] Memory usage: 910 MB / 2048 MB (44%)",
+      "2026-03-14T16:00:00Z INFO  [Redis] Persistence checkpoint completed"
+    ],
+    "kafka-0": [
+      "2026-03-14T08:00:00Z INFO  [Kafka] Broker 0 started",
+      "2026-03-14T08:00:10Z INFO  [Kafka] Controller elected, broker 0 is leader",
+      "2026-03-14T08:05:00Z INFO  [Kafka] Topic payment-events: 12 partitions, replication factor 2",
+      "2026-03-14T10:00:00Z INFO  [Kafka] Consumer lag payment-events: 0",
+      "2026-03-14T12:00:00Z INFO  [Kafka] Log compaction for internal topics completed",
+      "2026-03-14T14:00:00Z INFO  [Kafka] Consumer lag notification-events: 0",
+      "2026-03-14T16:00:00Z INFO  [Kafka] Metrics: msg/sec=12500"
+    ],
+    "api-gateway-84f6c5d-2x7n9": [
+      "2026-03-14T08:00:00Z INFO  [ApiGateway] Service started",
+      "2026-03-14T08:00:05Z INFO  [ApiGateway] Routes registered: 85",
+      "2026-03-14T10:00:00Z INFO  [ApiGateway] Request rate: 2500 req/s, error rate: 0.01%",
+      "2026-03-14T12:00:00Z INFO  [ApiGateway] All upstream services healthy",
+      "2026-03-14T14:00:00Z INFO  [ApiGateway] Request rate: 2800 req/s, error rate: 0.005%",
+      "2026-03-14T16:00:00Z INFO  [ApiGateway] Circuit breaker: all services closed"
+    ],
+    "search-service-9f4a1c6-mp8h3": [
+      "2026-03-14T08:00:00Z INFO  [SearchService] Starting service",
+      "2026-03-14T08:00:05Z INFO  [SearchService] Connected to elasticsearch cluster",
+      "2026-03-14T10:00:00Z INFO  [SearchService] Query latency p99: 95ms",
+      "2026-03-14T12:00:00Z INFO  [SearchService] Indexed 50000 products",
+      "2026-03-14T14:00:00Z INFO  [SearchService] Query latency p99: 87ms",
+      "2026-03-14T16:00:00Z INFO  [SearchService] Index refresh completed"
+    ],
+    "fraud-detector-7a5b2e6-q4j8m": [
+      "2026-03-14T08:00:00Z INFO  [FraudDetector] Service started",
+      "2026-03-14T08:00:05Z INFO  [FraudDetector] ML model loaded",
+      "2026-03-14T10:00:00Z INFO  [FraudDetector] Processed transaction: order-12345, risk=low, latency=42ms",
+      "2026-03-14T12:00:00Z INFO  [FraudDetector] Detection accuracy: 99.2%",
+      "2026-03-14T14:00:00Z INFO  [FraudDetector] Detected fraudulent transaction: blocked order",
+      "2026-03-14T16:00:00Z INFO  [FraudDetector] CPU usage: 240m, steady"
+    ]
+  }
+}

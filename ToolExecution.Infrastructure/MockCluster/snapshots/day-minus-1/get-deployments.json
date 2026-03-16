@@ -1,0 +1,230 @@
+{
+  "snapshotDate": "2026-03-15",
+  "day": "degrading",
+  "deployments": [
+    {
+      "name": "ingress-nginx",
+      "namespace": "ingress",
+      "replicas": 2,
+      "readyReplicas": 2,
+      "observedGeneration": 1
+    },
+    {
+      "name": "cert-manager",
+      "namespace": "ingress",
+      "replicas": 1,
+      "readyReplicas": 1,
+      "observedGeneration": 1
+    },
+    {
+      "name": "external-dns",
+      "namespace": "ingress",
+      "replicas": 1,
+      "readyReplicas": 1,
+      "observedGeneration": 1
+    },
+    {
+      "name": "api-gateway",
+      "namespace": "platform",
+      "replicas": 3,
+      "readyReplicas": 3,
+      "observedGeneration": 1
+    },
+    {
+      "name": "auth-service",
+      "namespace": "platform",
+      "replicas": 2,
+      "readyReplicas": 2,
+      "observedGeneration": 1
+    },
+    {
+      "name": "config-service",
+      "namespace": "platform",
+      "replicas": 1,
+      "readyReplicas": 1,
+      "observedGeneration": 1
+    },
+    {
+      "name": "service-mesh",
+      "namespace": "platform",
+      "replicas": 2,
+      "readyReplicas": 2,
+      "observedGeneration": 1
+    },
+    {
+      "name": "feature-flag-service",
+      "namespace": "platform",
+      "replicas": 1,
+      "readyReplicas": 1,
+      "observedGeneration": 1
+    },
+    {
+      "name": "rate-limiter",
+      "namespace": "platform",
+      "replicas": 2,
+      "readyReplicas": 2,
+      "observedGeneration": 1
+    },
+    {
+      "name": "order-service",
+      "namespace": "commerce",
+      "replicas": 3,
+      "readyReplicas": 3,
+      "observedGeneration": 2
+    },
+    {
+      "name": "product-service",
+      "namespace": "commerce",
+      "replicas": 2,
+      "readyReplicas": 2,
+      "observedGeneration": 1
+    },
+    {
+      "name": "cart-service",
+      "namespace": "commerce",
+      "replicas": 2,
+      "readyReplicas": 2,
+      "observedGeneration": 2
+    },
+    {
+      "name": "checkout-service",
+      "namespace": "commerce",
+      "replicas": 2,
+      "readyReplicas": 2,
+      "observedGeneration": 1
+    },
+    {
+      "name": "inventory-service",
+      "namespace": "commerce",
+      "replicas": 2,
+      "readyReplicas": 2,
+      "observedGeneration": 1
+    },
+    {
+      "name": "pricing-service",
+      "namespace": "commerce",
+      "replicas": 1,
+      "readyReplicas": 1,
+      "observedGeneration": 1
+    },
+    {
+      "name": "search-service",
+      "namespace": "commerce",
+      "replicas": 2,
+      "readyReplicas": 2,
+      "observedGeneration": 2
+    },
+    {
+      "name": "payment-service",
+      "namespace": "payments",
+      "replicas": 3,
+      "readyReplicas": 3,
+      "observedGeneration": 2
+    },
+    {
+      "name": "fraud-detector",
+      "namespace": "payments",
+      "replicas": 2,
+      "readyReplicas": 2,
+      "observedGeneration": 2
+    },
+    {
+      "name": "payment-gateway",
+      "namespace": "payments",
+      "replicas": 2,
+      "readyReplicas": 2,
+      "observedGeneration": 1
+    },
+    {
+      "name": "payment-worker",
+      "namespace": "payments",
+      "replicas": 1,
+      "readyReplicas": 1,
+      "observedGeneration": 1
+    },
+    {
+      "name": "email-service",
+      "namespace": "notifications",
+      "replicas": 2,
+      "readyReplicas": 2,
+      "observedGeneration": 1
+    },
+    {
+      "name": "sms-service",
+      "namespace": "notifications",
+      "replicas": 1,
+      "readyReplicas": 1,
+      "observedGeneration": 1
+    },
+    {
+      "name": "push-notif-service",
+      "namespace": "notifications",
+      "replicas": 1,
+      "readyReplicas": 1,
+      "observedGeneration": 1
+    },
+    {
+      "name": "notification-worker",
+      "namespace": "notifications",
+      "replicas": 2,
+      "readyReplicas": 2,
+      "observedGeneration": 2
+    },
+    {
+      "name": "postgres",
+      "namespace": "data",
+      "replicas": 1,
+      "readyReplicas": 1,
+      "observedGeneration": 1
+    },
+    {
+      "name": "redis",
+      "namespace": "data",
+      "replicas": 1,
+      "readyReplicas": 1,
+      "observedGeneration": 1
+    },
+    {
+      "name": "elasticsearch",
+      "namespace": "data",
+      "replicas": 2,
+      "readyReplicas": 2,
+      "observedGeneration": 1
+    },
+    {
+      "name": "kafka",
+      "namespace": "data",
+      "replicas": 2,
+      "readyReplicas": 2,
+      "observedGeneration": 1
+    },
+    {
+      "name": "prometheus",
+      "namespace": "monitoring",
+      "replicas": 1,
+      "readyReplicas": 1,
+      "observedGeneration": 1
+    },
+    {
+      "name": "grafana",
+      "namespace": "monitoring",
+      "replicas": 1,
+      "readyReplicas": 1,
+      "observedGeneration": 1
+    },
+    {
+      "name": "alertmanager",
+      "namespace": "monitoring",
+      "replicas": 1,
+      "readyReplicas": 1,
+      "observedGeneration": 1
+    },
+    {
+      "name": "jaeger",
+      "namespace": "monitoring",
+      "replicas": 1,
+      "readyReplicas": 1,
+      "observedGeneration": 1
+    }
+  ]
+}

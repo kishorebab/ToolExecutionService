@@ -1,0 +1,328 @@
+{
+  "snapshotDate": "2026-03-14",
+  "day": "stable",
+  "pods": [
+    {
+      "name": "ingress-nginx-controller-7d4fb9f8b9-2k5h7",
+      "namespace": "ingress",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "cert-manager-fc7b4f6-tjlmn",
+      "namespace": "ingress",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "external-dns-5d8c4b3-r9qk2",
+      "namespace": "ingress",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "api-gateway-84f6c5d-2x7n9",
+      "namespace": "platform",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "api-gateway-84f6c5d-4m2p8",
+      "namespace": "platform",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "auth-service-6b3e2f9-kdlw5",
+      "namespace": "platform",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "auth-service-6b3e2f9-sx8q3",
+      "namespace": "platform",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "config-service-9a5c1b2-vhx4f",
+      "namespace": "platform",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "config-service-9a5c1b2-z7kj9",
+      "namespace": "platform",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "service-mesh-7c2d5a8-m9nw4",
+      "namespace": "platform",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "feature-flag-service-5d1e4c3-b6v2k",
+      "namespace": "platform",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "rate-limiter-8f3g2h1-pq8r5",
+      "namespace": "platform",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "order-service-4b2c1f8-hjk9l",
+      "namespace": "commerce",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "order-service-4b2c1f8-x2d4e",
+      "namespace": "commerce",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "product-service-7f5e3a2-qmn7w",
+      "namespace": "commerce",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "product-service-7f5e3a2-u8v3h",
+      "namespace": "commerce",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "cart-service-2a6b4f9-ct6k1",
+      "namespace": "commerce",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "cart-service-2a6b4f9-y9j2m",
+      "namespace": "commerce",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "checkout-service-8d3f2a5-p5l8b",
+      "namespace": "commerce",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "checkout-service-8d3f2a5-s1q9k",
+      "namespace": "commerce",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "inventory-service-6c1e4b3-w7t2f",
+      "namespace": "commerce",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "inventory-service-6c1e4b3-zn3m6",
+      "namespace": "commerce",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "pricing-service-5b7c8a2-jk4d9",
+      "namespace": "commerce",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "pricing-service-5b7c8a2-r2u6w",
+      "namespace": "commerce",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "search-service-9f4a1c6-mp8h3",
+      "namespace": "commerce",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "search-service-9f4a1c6-x5b1k",
+      "namespace": "commerce",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "payment-service-3e2d5f7-lm9c8",
+      "namespace": "payments",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "payment-service-3e2d5f7-v6k2n",
+      "namespace": "payments",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "fraud-detector-7a5b2e6-q4j8m",
+      "namespace": "payments",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "fraud-detector-7a5b2e6-s9r5w",
+      "namespace": "payments",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "payment-gateway-8c3f6b2-ht7d4",
+      "namespace": "payments",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "payment-worker-5a2c4d8-k1n3f",
+      "namespace": "payments",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "email-service-6b4c2f5-y2m7k",
+      "namespace": "notifications",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "sms-service-9d5a3c1-p8q6h",
+      "namespace": "notifications",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "push-notif-service-4f2e7b6-v4w1n",
+      "namespace": "notifications",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "notification-worker-7c3a5d2-g9l8m",
+      "namespace": "notifications",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "postgres-statefulset-0",
+      "namespace": "data",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "redis-statefulset-0",
+      "namespace": "data",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "elasticsearch-0",
+      "namespace": "data",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "elasticsearch-1",
+      "namespace": "data",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "kafka-0",
+      "namespace": "data",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "kafka-1",
+      "namespace": "data",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "prometheus-statefulset-0",
+      "namespace": "monitoring",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "grafana-deployment-5c4a2b1-h6j3n",
+      "namespace": "monitoring",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "alertmanager-0",
+      "namespace": "monitoring",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    },
+    {
+      "name": "jaeger-5b2d4f7-m9p6k",
+      "namespace": "monitoring",
+      "status": "Running",
+      "readyContainers": 1,
+      "totalContainers": 1
+    }
+  ]
+}

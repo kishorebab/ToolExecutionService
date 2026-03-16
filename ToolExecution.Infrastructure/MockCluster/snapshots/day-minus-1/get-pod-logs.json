@@ -1,0 +1,68 @@
+{
+  "snapshotDate": "2026-03-15",
+  "day": "degrading",
+  "podLogs": {
+    "payment-service-3e2d5f7-lm9c8": [
+      "2026-03-15T08:00:00Z INFO  [PaymentService] Service started",
+      "2026-03-15T10:00:00Z WARN  [PaymentService] High memory usage detected: 850Mi / 1Gi",
+      "2026-03-15T10:05:00Z WARN  [PaymentService] Full GC pause: 2300ms",
+      "2026-03-15T12:00:00Z WARN  [PaymentService] Memory leak suspected: heap growing: 920Mi / 1Gi",
+      "2026-03-15T14:00:00Z WARN  [PaymentService] Full GC pause: 2100ms",
+      "2026-03-15T16:00:00Z WARN  [PaymentService] Processing latency increased: 850ms average"
+    ],
+    "elasticsearch-0": [
+      "2026-03-15T08:00:00Z INFO  [Elasticsearch] Cluster joined",
+      "2026-03-15T10:00:00Z WARN  [Elasticsearch] Heap memory: 3100 MB / 4096 MB (76%)",
+      "2026-03-15T10:30:00Z WARN  [Elasticsearch] GC pause: 1200ms",
+      "2026-03-15T12:00:00Z WARN  [Elasticsearch] Heap memory: 3200 MB / 4096 MB (78%)",
+      "2026-03-15T14:00:00Z WARN  [Elasticsearch] GC pause: 1500ms - memory pressure high",
+      "2026-03-15T16:00:00Z WARN  [Elasticsearch] Query latency p99: 2100ms, degraded performance"
+    ],
+    "postgres-statefulset-0": [
+      "2026-03-15T08:00:00Z INFO  [PostgreSQL] Server running",
+      "2026-03-15T10:00:00Z WARN  [PostgreSQL] Active connections: 155 / 200",
+      "2026-03-15T12:00:00Z WARN  [PostgreSQL] Active connections: 172 / 200",
+      "2026-03-15T13:00:00Z WARN  [PostgreSQL] Slow query detected: order_summary (520ms)",
+      "2026-03-15T14:00:00Z WARN  [PostgreSQL] Slow query detected: cart_query (480ms)",
+      "2026-03-15T16:00:00Z WARN  [PostgreSQL] Connection pool nearly exhausted: 175 / 200"
+    ],
+    "redis-statefulset-0": [
+      "2026-03-15T08:00:00Z INFO  [Redis] Server started",
+      "2026-03-15T10:00:00Z WARN  [Redis] Memory usage: 1550 MB / 2048 MB (76%)",
+      "2026-03-15T12:00:00Z WARN  [Redis] Memory usage: 1680 MB / 2048 MB (82%)",
+      "2026-03-15T13:00:00Z WARN  [Redis] Evicting keys due to memory pressure",
+      "2026-03-15T14:00:00Z WARN  [Redis] Cart session evicted: user-45678",
+      "2026-03-15T16:00:00Z WARN  [Redis] Eviction rate: 50 keys/sec"
+    ],
+    "kafka-0": [
+      "2026-03-15T08:00:00Z INFO  [Kafka] Broker running",
+      "2026-03-15T10:00:00Z WARN  [Kafka] Consumer lag payment-events: 12000",
+      "2026-03-15T12:00:00Z WARN  [Kafka] Consumer lag payment-events: 25000",
+      "2026-03-15T14:00:00Z WARN  [Kafka] Consumer lag payment-events: 34000",
+      "2026-03-15T15:00:00Z WARN  [Kafka] Consumer lag notification-events: 18000",
+      "2026-03-15T16:00:00Z WARN  [Kafka] Lag still growing: payment-events=36000, notification-events=19000"
+    ],
+    "api-gateway-84f6c5d-2x7n9": [
+      "2026-03-15T08:00:00Z INFO  [ApiGateway] Service running",
+      "2026-03-15T10:00:00Z INFO  [ApiGateway] Request rate: 2800 req/s",
+      "2026-03-15T12:00:00Z WARN  [ApiGateway] Error rate: 1.2%",
+      "2026-03-15T14:00:00Z WARN  [ApiGateway] Error rate: 1.8%, some upstream services degraded",
+      "2026-03-15T16:00:00Z WARN  [ApiGateway] Circuit breaker trips: fraud-detector timeout"
+    ],
+    "search-service-9f4a1c6-mp8h3": [
+      "2026-03-15T08:00:00Z INFO  [SearchService] Service started",
+      "2026-03-15T10:00:00Z INFO  [SearchService] Connected to elasticsearch",
+      "2026-03-15T12:00:00Z WARN  [SearchService] Query latency p99: 1200ms",
+      "2026-03-15T14:00:00Z WARN  [SearchService] Query latency p99: 2100ms - elasticsearch under pressure",
+      "2026-03-15T16:00:00Z WARN  [SearchService] Some product searches timing out"
+    ],
+    "fraud-detector-7a5b2e6-q4j8m": [
+      "2026-03-15T08:00:00Z INFO  [FraudDetector] Service started",
+      "2026-03-15T10:00:00Z WARN  [FraudDetector] CPU throttled at 800m",
+      "2026-03-15T12:00:00Z WARN  [FraudDetector] CPU throttled at 850m",
+      "2026-03-15T14:00:00Z WARN  [FraudDetector] CPU throttled at 880m, latency increasing",
+      "2026-03-15T15:00:00Z WARN  [FraudDetector] Detection latency: 320ms average",
+      "2026-03-15T16:00:00Z WARN  [FraudDetector] Some transactions timing out in payment-service"
+    ]
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "snapshotDate": "2026-03-16",
+  "day": "incident",
+  "podLogs": {
+    "elasticsearch-1": [
+      "2026-03-16T05:00:00Z INFO  [Elasticsearch] Cluster running",
+      "2026-03-16T05:40:00Z INFO  [Elasticsearch] Node 0 status check OK",
+      "2026-03-16T05:45:00Z ERROR [Elasticsearch] Node 0 unresponsive",
+      "2026-03-16T05:46:00Z ERROR [Elasticsearch] elasticsearch-0 OOMKilled - heap exhausted",
+      "2026-03-16T05:47:00Z ERROR [Elasticsearch] Cluster shard allocation failed",
+      "2026-03-16T06:00:00Z FATAL [Elasticsearch] Search functionality degraded - 1/2 nodes down"
+    ],
+    "api-gateway-84f6c5d-2x7n9": [
+      "2026-03-16T05:00:00Z INFO  [ApiGateway] Service running",
+      "2026-03-16T05:30:00Z INFO  [ApiGateway] Request rate: 3200 req/s",
+      "2026-03-16T05:45:00Z ERROR [ApiGateway] Payment service circuit breaker OPEN",
+      "2026-03-16T05:46:00Z ERROR [ApiGateway] Checkout service timeout errors: 41%",
+      "2026-03-16T05:47:00Z ERROR [ApiGateway] Search service CrashLoopBackOff",
+      "2026-03-16T05:48:00Z FATAL [ApiGateway] Cascading failures detected across payment, checkout, search chains",
+      "2026-03-16T06:00:00Z ERROR [ApiGateway] 5xx error rate: 41%"
+    ],
+    "auth-service-6b3e2f9-kdlw5": [
+      "2026-03-16T05:00:00Z INFO  [AuthService] Service started",
+      "2026-03-16T05:40:00Z INFO  [AuthService] JWT key refresh from config service",
+      "2026-03-16T05:48:00Z ERROR [AuthService] Config service CrashLoopBackOff - cannot refresh JWT keys",
+      "2026-03-16T05:49:00Z ERROR [AuthService] New login requests failing: JWT token refresh unavailable",
+      "2026-03-16T05:50:00Z FATAL [AuthService] Auth service partial failure - new sessions cannot be created"
+    ],
+    "postgres-statefulset-0": [
+      "2026-03-16T05:00:00Z INFO  [PostgreSQL] Server running",
+      "2026-03-16T05:00:00Z INFO  [PostgreSQL] Active connections: 175 / 200",
+      "2026-03-16T05:30:00Z WARN  [PostgreSQL] Active connections: 195 / 200",
+      "2026-03-16T05:45:00Z ERROR [PostgreSQL] max_connections reached",
+      "2026-03-16T05:46:00Z ERROR [PostgreSQL] Connection rejection: error: FATAL: remaining connection slots are reserved for non-replication superuser connections",
+      "2026-03-16T05:47:00Z FATAL [PostgreSQL] Checkout and order services cannot acquire database connections"
+    ],
+    "redis-statefulset-0": [
+      "2026-03-16T05:00:00Z INFO  [Redis] Server running",
+      "2026-03-16T05:30:00Z WARN  [Redis] Memory usage: 1.9 GB / 2 GB (95%)",
+      "2026-03-16T05:40:00Z ERROR [Redis] OOM eviction in progress: evicting 100 keys/sec",
+      "2026-03-16T05:45:00Z FATAL [Redis] Memory exhausted - cart session store completely cleared",
+      "2026-03-16T05:46:00Z ERROR [Redis] Cart service error: session not found for user-x, cannot proceed with checkout"
+    ],
+    "kafka-0": [
+      "2026-03-16T05:00:00Z INFO  [Kafka] Broker running",
+      "2026-03-16T05:00:00Z INFO  [Kafka] Consumer lag payment-events: 36000",
+      "2026-03-16T05:30:00Z WARN  [Kafka] Consumer lag payment-events: 60000",
+      "2026-03-16T05:45:00Z ERROR [Kafka] Consumer lag payment-events: 94000",
+      "2026-03-16T05:46:00Z ERROR [Kafka] Consumer lag notification-events: 94000",
+      "2026-03-16T05:47:00Z ERROR [Kafka] Notification worker OOMKilled - cannot process backed-up messages",
+      "2026-03-16T05:48:00Z FATAL [Kafka] Notification queue stalled - users never notified of failed payments"
+    ],
+    "payment-service-3e2d5f7-lm9c8": [
+      "2026-03-16T05:00:00Z INFO  [PaymentService] Service started",
+      "2026-03-16T05:40:00Z WARN  [PaymentService] Memory usage: 980Mi / 1Gi (98%)",
+      "2026-03-16T05:45:00Z ERROR [PaymentService] java.lang.OutOfMemoryError in FraudCheckClient.java:312",
+      "2026-03-16T05:45:02Z ERROR Stack trace:",
+      "2026-03-16T05:45:03Z ERROR   at java.util.HashMap.resize(HashMap.java:704)",
+      "2026-03-16T05:45:04Z ERROR   at java.util.HashMap.putVal(HashMap.java:635)",
+      "2026-03-16T05:45:05Z ERROR   at java.util.HashMap.put(HashMap.java:612)",
+      "2026-03-16T05:45:06Z ERROR   at com.company.fraud.FraudCheckClient.checkTransaction(FraudCheckClient.java:312)",
+      "2026-03-16T05:45:07Z ERROR   at com.company.payment.PaymentService.processPayment(PaymentService.java:145)",
+      "2026-03-16T05:46:00Z FATAL [PaymentService] OOMKilled - payment processing unavailable",
+      "2026-03-16T05:46:15Z INFO  [PaymentService] Container restart attempt 1/3"
+    ],
+    "payment-gateway-8c3f6b2-ht7d4": [
+      "2026-03-16T05:00:00Z INFO  [PaymentGateway] Pulling container image v3.2.0",
+      "2026-03-16T05:01:00Z ERROR [PaymentGateway] Failed to pull image: company/payment-gateway:v3.2.0",
+      "2026-03-16T05:02:00Z ERROR [PaymentGateway] ImagePullBackOff - image v3.2.0 does not exist in registry",
+      "2026-03-16T05:30:00Z ERROR [PaymentGateway] Still unable to pull image after 58 minutes"
+    ],
+    "search-service-9f4a1c6-mp8h3": [
+      "2026-03-16T05:00:00Z INFO  [SearchService] Service starting",
+      "2026-03-16T05:40:00Z INFO  [SearchService] Connecting to elasticsearch cluster",
+      "2026-03-16T05:45:00Z ERROR [SearchService] elasticsearch node-0 unreachable (OOMKilled)",
+      "2026-03-16T05:46:00Z ERROR [SearchService] Cluster shard allocation failed - search index unavailable",
+      "2026-03-16T05:47:00Z FATAL [SearchService] CrashLoopBackOff - cannot start without elasticsearch",
+      "2026-03-16T05:47:30Z INFO  [SearchService] Container restart attempt 1/12"
+    ],
+    "config-service-9a5c1b2-vhx4f": [
+      "2026-03-16T05:00:00Z INFO  [ConfigService] Service starting",
+      "2026-03-16T05:00:30Z ERROR [ConfigService] Environment variable CONFIG_STORE_URL not found",
+      "2026-03-16T05:00:31Z FATAL [ConfigService] Cannot initialize config store - mandatory env var missing",
+      "2026-03-16T05:00:31Z ERROR [ConfigService] java.lang.IllegalStateException: CONFIG_STORE_URL must be set",
+      "2026-03-16T05:01:00Z INFO  [ConfigService] Container restart attempt 1/3",
+      "2026-03-16T05:01:30Z ERROR [ConfigService] Environment variable CONFIG_STORE_URL not found (retry)",
+      "2026-03-16T05:02:00Z INFO  [ConfigService] Container restart attempt 2/3"
+    ],
+    "notification-worker-7c3a5d2-g9l8m": [
+      "2026-03-16T05:30:00Z INFO  [NotificationWorker] Kafka consumer starting",
+      "2026-03-16T05:40:00Z INFO  [NotificationWorker] Processing notification events",
+      "2026-03-16T05:45:00Z WARN  [NotificationWorker] Consumer lag 94000 events",
+      "2026-03-16T05:46:00Z WARN  [NotificationWorker] Memory usage: 980Mi / 1Gi (98%)",
+      "2026-03-16T05:47:00Z ERROR [NotificationWorker] java.lang.OutOfMemoryError: GC overhead limit exceeded",
+      "2026-03-16T05:47:15Z FATAL [NotificationWorker] OOMKilled - notification processing halted"
+    ]
+  }
+}

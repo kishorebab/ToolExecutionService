@@ -1,0 +1,72 @@
+{
+  "snapshotDate": "2026-03-14",
+  "day": "stable",
+  "resourceUsage": [
+    {
+      "name": "payment-service-3e2d5f7-lm9c8",
+      "namespace": "payments",
+      "cpuUsage": "280m",
+      "memoryUsage": "512Mi"
+    },
+    {
+      "name": "elasticsearch-0",
+      "namespace": "data",
+      "cpuUsage": "450m",
+      "memoryUsage": "2.1Gi"
+    },
+    {
+      "name": "elasticsearch-1",
+      "namespace": "data",
+      "cpuUsage": "420m",
+      "memoryUsage": "2.0Gi"
+    },
+    {
+      "name": "postgres-statefulset-0",
+      "namespace": "data",
+      "cpuUsage": "320m",
+      "memoryUsage": "1.2Gi"
+    },
+    {
+      "name": "redis-statefulset-0",
+      "namespace": "data",
+      "cpuUsage": "180m",
+      "memoryUsage": "920Mi"
+    },
+    {
+      "name": "kafka-0",
+      "namespace": "data",
+      "cpuUsage": "520m",
+      "memoryUsage": "1.8Gi"
+    },
+    {
+      "name": "kafka-1",
+      "namespace": "data",
+      "cpuUsage": "490m",
+      "memoryUsage": "1.7Gi"
+    },
+    {
+      "name": "api-gateway-84f6c5d-2x7n9",
+      "namespace": "platform",
+      "cpuUsage": "450m",
+      "memoryUsage": "640Mi"
+    },
+    {
+      "name": "order-service-4b2c1f8-hjk9l",
+      "namespace": "commerce",
+      "cpuUsage": "280m",
+      "memoryUsage": "480Mi"
+    },
+    {
+      "name": "search-service-9f4a1c6-mp8h3",
+      "namespace": "commerce",
+      "cpuUsage": "320m",
+      "memoryUsage": "640Mi"
+    },
+    {
+      "name": "fraud-detector-7a5b2e6-q4j8m",
+      "namespace": "payments",
+      "cpuUsage": "240m",
+      "memoryUsage": "384Mi"
+    }
+  ]
+}
