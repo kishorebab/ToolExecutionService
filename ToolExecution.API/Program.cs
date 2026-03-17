@@ -14,6 +14,7 @@ using ToolExecution.Infrastructure.Clients;
 using ToolExecution.Infrastructure.Policies;
 using ToolExecution.Infrastructure.Registries;
 using ToolExecution.Infrastructure.SampleTools;
+using ToolExecution.Infrastructure.Tools;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,7 +31,12 @@ builder.Services.AddSwaggerGen();
 
 // Tool Engine
 builder.Services.AddSingleton<Domain.IToolRegistry, InMemoryToolRegistry>();
-builder.Services.AddScoped<IToolExecutor, ToolExecutionService>();
+
+// NEW: Register the generic ToolExecutor service
+builder.Services.AddScoped<IToolExecutor, ToolExecutor>();
+
+// LEGACY: Keep ToolExecutionService for backward compatibility with IToolExecutorService
+builder.Services.AddScoped<IToolExecutorService, ToolExecutorService>();
 
 // Kubernetes Client
 builder.Services.AddSingleton<PolicyProvider>();
@@ -41,8 +47,6 @@ if (kubernetesClient == "real")
     builder.Services.AddSingleton<IKubernetesClient, KubernetesClient>();
 else
     builder.Services.AddSingleton<IKubernetesClient, MockKubernetesClient>();
-
-builder.Services.AddScoped<IToolExecutorService, ToolExecutorService>();
 
 // FluentValidation Registration
 // Assembly scanning is not used; validators are explicitly registered below
@@ -67,11 +71,24 @@ builder.Services.AddOpenTelemetry()
 
 var app = builder.Build();
 
-// Initialize Tool Engine: Register sample tools
+// Initialize Tool Engine: Register all tools
 var toolRegistry = app.Services.GetRequiredService<Domain.IToolRegistry>();
+var kubernetesClientInstance = app.Services.GetRequiredService<IKubernetesClient>();
+
+// Register sample tools
 toolRegistry.Register(new EchoTool());
 toolRegistry.Register(new MathAddTool());
-app.Logger.LogInformation("Tool Engine initialized with {ToolCount} sample tools", toolRegistry.Count);
+
+// Register Kubernetes tools
+toolRegistry.Register(new ListPodsTool(kubernetesClientInstance));
+toolRegistry.Register(new GetPodLogsTool(kubernetesClientInstance));
+toolRegistry.Register(new GetDeploymentsTool(kubernetesClientInstance));
+toolRegistry.Register(new GetResourceUsageTool(kubernetesClientInstance));
+toolRegistry.Register(new ExecuteCommandTool(kubernetesClientInstance));
+
+app.Logger.LogInformation(
+    "Tool Engine initialized with {ToolCount} registered tools",
+    toolRegistry.Count);
 
 if (app.Environment.IsDevelopment())
 {
