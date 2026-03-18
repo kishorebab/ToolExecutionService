@@ -36,6 +36,14 @@ public class ToolDefinition
     public required string OutputSchema { get; init; }
 
     /// <summary>
+    /// Structured parameter definitions for this tool.
+    /// Key = parameter name, Value = parameter metadata.
+    /// This is the machine-readable source of truth consumed by the AI Agent planner.
+    /// The LLM uses this to know what arguments to fill in for each plan step.
+    /// </summary>
+    public Dictionary<string, ToolParameterDto>? Parameters { get; init; }
+
+    /// <summary>
     /// Maximum allowed execution time in seconds.
     /// Prevents tools from running indefinitely.
     /// </summary>

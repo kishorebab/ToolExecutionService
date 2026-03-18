@@ -61,7 +61,11 @@ public class ListPodsTool : ITool
                         }
                     }
                 }
-                """
+                """,
+            Parameters = new Dictionary<string, ToolParameterDto>
+            {
+                ["namespace"] = new() { Type = "string", Required = true, Description = "Kubernetes namespace to list pods in" }
+            }
         };
     }
 

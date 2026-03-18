@@ -64,7 +64,12 @@ public class GetResourceUsageTool : ITool
                         }
                     }
                 }
-                """
+                """,
+            Parameters = new Dictionary<string, ToolParameterDto>
+            {
+                ["namespace"] = new() { Type = "string", Required = true,  Description = "Kubernetes namespace" },
+                ["podName"]   = new() { Type = "string", Required = false, Description = "Filter to a specific pod (optional, omit for all pods)" }
+            }
         };
     }
 

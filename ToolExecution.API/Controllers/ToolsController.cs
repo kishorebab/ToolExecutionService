@@ -49,7 +49,8 @@ public class ToolsController : ControllerBase
                 IsIdempotent = td.IsIdempotent,
                 IsEnabled = td.IsEnabled,
                 TimeoutSeconds = td.TimeoutSeconds,
-                RegisteredAt = td.RegisteredAt
+                RegisteredAt = td.RegisteredAt,
+                Parameters = td.Parameters
             }).ToList(),
             Count = toolDefinitions.Count
         };
@@ -88,7 +89,8 @@ public class ToolsController : ControllerBase
             TimeoutSeconds = toolDef.TimeoutSeconds,
             RegisteredAt = toolDef.RegisteredAt,
             InputSchema = toolDef.InputSchema,
-            OutputSchema = toolDef.OutputSchema
+            OutputSchema = toolDef.OutputSchema,
+            Parameters = toolDef.Parameters
         };
 
         return Ok(response);
@@ -234,6 +236,7 @@ public class ToolDefinitionDto
     public DateTime RegisteredAt { get; init; }
     public string? InputSchema { get; init; }
     public string? OutputSchema { get; init; }
+    public Dictionary<string, ToolParameterDto>? Parameters { get; init; }
 }
 
 /// <summary>

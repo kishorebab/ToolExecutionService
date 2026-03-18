@@ -69,7 +69,13 @@ public class ExecuteCommandTool : ITool
                         }
                     }
                 }
-                """
+                """,
+            Parameters = new Dictionary<string, ToolParameterDto>
+            {
+                ["namespace"] = new() { Type = "string", Required = true, Description = "Kubernetes namespace" },
+                ["podName"]   = new() { Type = "string", Required = true, Description = "Name of the pod to exec into" },
+                ["command"]   = new() { Type = "array",  Required = true, Description = "Command and args as a list, e.g. [\"cat\", \"/etc/hosts\"]" }
+            }
         };
     }
 

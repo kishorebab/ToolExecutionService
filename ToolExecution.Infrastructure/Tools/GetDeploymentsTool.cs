@@ -60,7 +60,11 @@ public class GetDeploymentsTool : ITool
                         }
                     }
                 }
-                """
+                """,
+            Parameters = new Dictionary<string, ToolParameterDto>
+            {
+                ["namespace"] = new() { Type = "string", Required = true, Description = "Kubernetes namespace to list deployments in" }
+            }
         };
     }
 

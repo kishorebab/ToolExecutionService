@@ -66,7 +66,14 @@ public class GetPodLogsTool : ITool
                         }
                     }
                 }
-                """
+                """,
+            Parameters = new Dictionary<string, ToolParameterDto>
+            {
+                ["namespace"]     = new() { Type = "string",  Required = true,  Description = "Kubernetes namespace" },
+                ["podName"]       = new() { Type = "string",  Required = true,  Description = "Name of the pod" },
+                ["containerName"] = new() { Type = "string",  Required = false, Description = "Container name (optional if single container)" },
+                ["tailLines"]     = new() { Type = "integer", Required = false, Description = "Number of log lines to tail", Default = 500 }
+            }
         };
     }
 

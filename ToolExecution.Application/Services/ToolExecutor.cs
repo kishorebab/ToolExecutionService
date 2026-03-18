@@ -201,6 +201,16 @@ public class ToolExecutor : IToolExecutor
             }
 
             stopwatch.Stop();
+
+            // Contract guarantee: output must never be null when success is true.
+            // The AI Agent's ToolResultItem requires output to be present to generate a diagnosis.
+            if (response.IsSuccess && response.Output == null)
+            {
+                throw new InvalidOperationException(
+                    $"Tool '{toolName}' returned success but output was null. " +
+                    "All tools must return a non-null output object on success.");
+            }
+
             return response;
         }
         catch (Exception ex)
