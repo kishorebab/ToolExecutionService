@@ -152,4 +152,40 @@ public class KubernetesClient : IKubernetesClient
             Metrics = metrics
         };
     }
+
+    public async Task<ToolResult> ListNamespacesAsync(CancellationToken cancellationToken = default)
+    {
+        using var activity = _activitySource.StartActivity("ListNamespaces");
+
+        // TODO: Replace with real Kubernetes SDK call
+        // k8sClient.CoreV1.ListNamespaceAsync(cancellationToken: cancellationToken)
+        
+        await Task.Delay(50, cancellationToken); // simulate network call
+        
+        var namespaces = new[]
+        {
+            "default",
+            "kube-system",
+            "kube-public",
+            "monitoring",
+            "payments",
+            "orders"
+        };
+
+        var output = new
+        {
+            namespaces,
+            count = namespaces.Length
+        };
+
+        var metrics = new ToolExecutionMetrics { LatencyMs = 50 };
+
+        return new ToolResult
+        {
+            ToolName = "list-namespaces",
+            Success = true,
+            Output = output,
+            Metrics = metrics
+        };
+    }
 }

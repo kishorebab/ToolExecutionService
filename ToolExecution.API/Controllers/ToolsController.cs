@@ -1,6 +1,7 @@
 namespace ToolExecution.API.Controllers;
 
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Mvc;
 using ToolExecution.Application.Contracts;
 using ToolExecution.Domain.Models;
@@ -39,20 +40,17 @@ public class ToolsController : ControllerBase
 
         var response = new ListToolsResponse
         {
-            Tools = toolDefinitions.Select(td => new ToolDefinitionDto
-            {
-                Name = td.Name,
-                Description = td.Description,
-                Version = td.Version,
-                Category = td.Category,
-                Tags = td.Tags,
-                IsIdempotent = td.IsIdempotent,
-                IsEnabled = td.IsEnabled,
-                TimeoutSeconds = td.TimeoutSeconds,
-                RegisteredAt = td.RegisteredAt,
-                Parameters = td.Parameters
-            }).ToList(),
-            Count = toolDefinitions.Count
+            Tools = toolDefinitions
+                .Where(td => td.IsEnabled)
+                .Select(td => new ToolDefinitionDto
+                {
+                    Name = td.Name,
+                    Description = td.Description,
+                    IsIdempotent = td.IsIdempotent,
+                    TimeoutSeconds = td.TimeoutSeconds,
+                    Parameters = td.Parameters
+                }).ToList(),
+            Count = toolDefinitions.Count(td => td.IsEnabled)
         };
 
         return Ok(response);
@@ -81,15 +79,8 @@ public class ToolsController : ControllerBase
         {
             Name = toolDef.Name,
             Description = toolDef.Description,
-            Version = toolDef.Version,
-            Category = toolDef.Category,
-            Tags = toolDef.Tags,
             IsIdempotent = toolDef.IsIdempotent,
-            IsEnabled = toolDef.IsEnabled,
             TimeoutSeconds = toolDef.TimeoutSeconds,
-            RegisteredAt = toolDef.RegisteredAt,
-            InputSchema = toolDef.InputSchema,
-            OutputSchema = toolDef.OutputSchema,
             Parameters = toolDef.Parameters
         };
 
@@ -227,15 +218,10 @@ public class ToolDefinitionDto
 {
     public required string Name { get; init; }
     public required string Description { get; init; }
-    public required string Version { get; init; }
-    public string? Category { get; init; }
-    public IReadOnlyList<string>? Tags { get; init; }
     public bool IsIdempotent { get; init; }
-    public bool IsEnabled { get; init; }
     public int TimeoutSeconds { get; init; }
-    public DateTime RegisteredAt { get; init; }
-    public string? InputSchema { get; init; }
-    public string? OutputSchema { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public Dictionary<string, ToolParameterDto>? Parameters { get; init; }
 }
 

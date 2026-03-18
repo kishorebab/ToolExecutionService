@@ -1,5 +1,7 @@
 namespace ToolExecution.Domain.Models;
 
+using System.Text.Json.Serialization;
+
 /// <summary>
 /// Describes a single parameter a tool accepts.
 /// Consumed by the AI Agent to understand what arguments to pass when planning tool execution.
@@ -24,5 +26,6 @@ public class ToolParameterDto
     /// <summary>
     /// Default value if not provided. Must be null if Required is true.
     /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public object? Default { get; set; }
 }

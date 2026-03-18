@@ -47,4 +47,12 @@ public interface IKubernetesClient
     /// <param name="cancellationToken">Cancellation token for the operation.</param>
     /// <returns>A ToolResult with ExecuteCommandOutput containing stdout, stderr, and exit code.</returns>
     Task<ToolResult> ExecuteCommandAsync(ExecuteCommandArguments args, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Lists all available namespaces in the Kubernetes cluster.
+    /// Called by the orchestrator before planning to provide namespace context to the AI Agent.
+    /// </summary>
+    /// <param name="cancellationToken">Cancellation token for the operation.</param>
+    /// <returns>A ToolResult with array of namespace names and count.</returns>
+    Task<ToolResult> ListNamespacesAsync(CancellationToken cancellationToken = default);
 }

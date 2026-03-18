@@ -251,10 +251,34 @@ public class MockKubernetesClient : IKubernetesClient
         return CreateSuccessResult(output);
     }
 
+    public async Task<ToolResult> ListNamespacesAsync(CancellationToken cancellationToken = default)
+    {
+        await SimulateLatencyAsync(50, 100);
+
+        var namespaces = new[]
+        {
+            "default",
+            "kube-system",
+            "kube-public",
+            "monitoring",
+            "payments",
+            "orders"
+        };
+
+        _logger.LogInformation("ListNamespaces: found {NamespaceCount} namespaces", namespaces.Length);
+
+        return CreateSuccessResult(new
+        {
+            namespaces,
+            count = namespaces.Length
+        });
+    }
+
     /// <summary>
     /// Resolves the snapshot folder path based on relative date logic.
     /// </summary>
     private string ResolveSnapshotFolder(DateTimeOffset? asOf = null)
+
     {
         var today = DateOnly.FromDateTime(DateTimeOffset.UtcNow.Date);
         var target = asOf.HasValue

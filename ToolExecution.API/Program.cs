@@ -60,16 +60,13 @@ var app = builder.Build();
 var toolRegistry = app.Services.GetRequiredService<Domain.IToolRegistry>();
 var kubernetesClientInstance = app.Services.GetRequiredService<IKubernetesClient>();
 
-// Register sample tools
-toolRegistry.Register(new EchoTool());
-toolRegistry.Register(new MathAddTool());
-
 // Register Kubernetes tools
 toolRegistry.Register(new ListPodsTool(kubernetesClientInstance));
 toolRegistry.Register(new GetPodLogsTool(kubernetesClientInstance));
 toolRegistry.Register(new GetDeploymentsTool(kubernetesClientInstance));
 toolRegistry.Register(new GetResourceUsageTool(kubernetesClientInstance));
 toolRegistry.Register(new ExecuteCommandTool(kubernetesClientInstance));
+toolRegistry.Register(new ListNamespacesTool(kubernetesClientInstance));
 
 app.Logger.LogInformation(
     "Tool Engine initialized with {ToolCount} registered tools",
